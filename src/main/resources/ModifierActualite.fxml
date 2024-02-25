@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="502.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierActualiteController">
+   <children>
+      <Label layoutX="255.0" layoutY="75.0" text="Id :" />
+      <Label layoutX="240.0" layoutY="114.0" text="Titre :" />
+      <Label layoutX="229.0" layoutY="165.0" text="Contenu :" />
+      <Label layoutX="227.0" layoutY="258.0" text="Date:" />
+      <Label layoutX="235.0" layoutY="320.0" text="Catégorie :" />
+      <Label layoutX="251.0" layoutY="377.0" text="Auteur :" />
+      <TextField fx:id="txtidActModif" layoutX="295.0" layoutY="71.0" />
+      <TextField fx:id="txtTitreActModif" layoutX="295.0" layoutY="110.0" />
+      <TextArea fx:id="txtcontenuActModif" layoutX="295.0" layoutY="158.0" prefHeight="85.0" prefWidth="165.0" />
+      <TextField fx:id="txtauteurActModif" layoutX="308.0" layoutY="373.0" />
+      <DatePicker fx:id="txtdateActModif" layoutX="283.0" layoutY="255.0" />
+      <ComboBox fx:id="txtCategModif" layoutX="308.0" layoutY="316.0" prefWidth="150.0" />
+      <Button layoutX="330.0" layoutY="426.0" mnemonicParsing="false" onAction="#ModifierAct" prefHeight="33.0" prefWidth="87.0" text="Modifier" />
+      <Label layoutX="281.0" layoutY="24.0" prefHeight="17.0" prefWidth="217.0" text="Modifier Actualité">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,125 @@
+/* Styles pour l'ensemble de l'application */
+* {
+    -fx-primary-color: #007acc;
+    -fx-secondary-color: #4B6EAF;
+    -fx-grey-color: #b9b9b9;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.root {
+    -fx-font-family: 'Poppins-Regular', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-background-color: linear-gradient(to right, rgba(2, 0, 36, 1), rgb(37, 37, 140), rgb(52, 186, 194));
+}
+.anchor-pane-left {
+    -fx-background-color: linear-gradient(to right, rgba(2, 0, 36, 1), rgb(37, 37, 140), rgb(52, 186, 194));
+}
+
+
+/* Styles pour le deuxième AnchorPane (celui à droite) */
+.anchor-pane-right {
+    -fx-background-color: white; /* Couleur blanche */
+}
+/* Styles pour les boutons */
+.button {
+    -fx-font-family: 'Century Gothic';
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+
+    -fx-min-width: 120px; /* Largeur minimale */
+    -fx-min-height: 40px;
+    /* Effet de clic */
+
+}
+
+.button:hover {
+    -fx-background-color: #3498db; /* Bleu clair au survol */
+    -fx-min-width: 120px; /* Largeur minimale */
+    -fx-min-height: 40px;
+}
+
+.table-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-cursor: hand;
+}
+.table-button:hover{
+    -fx-background-color: transparent;
+}
+.table-view {
+    -fx-border-color: transparent;
+    -fx-border-radius: 20px;
+
+}
+.table-view .column-header-background,
+.table-view .column-header-background .filler,
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header {
+    -fx-background-color: -fx-light-grey-color;
+
+}
+.table-view .column-header .label{
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+/* This is just magic */
+.table-row-cell:filled {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent -fx-lightest-grey-color -fx-lightest-grey-color -fx-lightest-grey-color, transparent;
+    -fx-border-insets: 0, 1;
+}
+.table-row-cell:empty {
+    -fx-background-color: transparent;
+}
+.table-row-cell:filled:hover {
+    -fx-background-color: -fx-light-grey-color;
+}
+.table-row-cell:filled:selected:hover {
+    -fx-background-color: -fx-light-grey-color;
+}
+.table-row-cell:filled:selected {
+    -fx-background-color: #eaeaea;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 0.0;
+}
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: black;
+}
+.table-view .cell:filled{
+    -fx-cell-size: 30;
+    -fx-alignment: center-left;
+}
+.check-box-table-cell > .check-box:selected .box .mark {
+    -fx-background-color: white;
+}
+.check-box-table-cell > .check-box:selected .box{
+    -fx-background-color: -fx-accent-color;
+}
+.table-view .placeholder .label {
+    -fx-text-fill: Blue;
+    -fx-padding:20px;
+}
+
+#button-mezyen {
+{
+    -fx-translate-x: -100%;
+    -fx-translate-y: 0;
+    -fx-pref-width: 300%;
+    -fx-pref-height: 100%;
+    -fx-background-color: linear-gradient(to right, #00dbde, #0999d2, #032f6e);
+    -fx-background-radius: 20;
+    -fx-transition: -fx-translate-x 0.4s;
+}
+}
+
+.text-field {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-grey-color, white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+}
+.text-field:focused {
+    -fx-background-color: -fx-primary-color, white;
+
+}

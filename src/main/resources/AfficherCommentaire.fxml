@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="502.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommentaireController">
+   <children>
+      <Label layoutX="101.0" layoutY="77.0" text="Contenu :">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbcontenu" layoutX="174.0" layoutY="77.0" prefHeight="17.0" prefWidth="35.0" />
+      <TableView fx:id="tableviewc" layoutX="52.0" layoutY="118.0" onMouseClicked="#handleTableClick" prefHeight="200.0" prefWidth="575.0">
+        <columns>
+          <TableColumn fx:id="colcontenuC" prefWidth="199.99996948242188" text="Commentaire" />
+          <TableColumn fx:id="coldateC" minWidth="0.0" prefWidth="196.0" text="Date publication" />
+            <TableColumn fx:id="colidCom1" prefWidth="199.99996948242188" text="Id" />
+        </columns>
+      </TableView>
+      <Button layoutX="550.0" layoutY="416.0" mnemonicParsing="false" onAction="#SupprimerCommentairee" prefHeight="25.0" prefWidth="87.0" text="Supprimer" />
+      <Button layoutX="472.0" layoutY="416.0" mnemonicParsing="false" onAction="#ModifierCommentairee" text="Modifier" />
+      <Button layoutX="406.0" layoutY="416.0" mnemonicParsing="false" onAction="#AjouterCommentairee" text="Ajouter" />
+      <TextArea fx:id="txtcontenuC1" layoutX="75.0" layoutY="332.0" prefHeight="35.0" prefWidth="551.0" />
+   </children>
+</AnchorPane>

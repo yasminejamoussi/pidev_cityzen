@@ -1,0 +1,72 @@
+/* Styles pour l'ensemble de l'application */
+* {
+    -fx-primary-color: #007acc;
+    -fx-secondary-color: #4B6EAF;
+    -fx-grey-color: #b9b9b9;
+
+    -fx-focus-color: -fx-secondary-color;
+}
+
+.root {
+    -fx-font-family: 'Poppins-Regular', Tahoma, Geneva, Verdana, sans-serif;
+    -fx-background-color: linear-gradient(to left, rgba(2, 0, 36, 1), rgb(89, 48, 150), rgb(128, 114, 171));
+
+}
+
+.table-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-cursor: hand;
+}
+.table-button:hover{
+    -fx-background-color: transparent;
+}
+.table-view {
+    -fx-border-color: transparent;
+    -fx-border-radius: 20px;
+
+}
+.table-view .column-header-background,
+.table-view .column-header-background .filler,
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header {
+    -fx-background-color: #CCCCCC;
+
+}
+.table-view .column-header .label{
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+}
+
+#button-mezyen {
+{
+    -fx-translate-x: -100%;
+    -fx-translate-y: 0;
+    -fx-pref-width: 300%;
+    -fx-pref-height: 100%;
+    -fx-background-color: linear-gradient(to right, rgba(2, 0, 36, 1), rgb(89, 48, 150), rgb(128, 114, 171));
+    -fx-background-radius: 20;
+    -fx-transition: -fx-translate-x 0.4s;
+}
+    .button {
+        -fx-font-family: 'Century Gothic';
+        -fx-font-weight: bold;
+        -fx-text-fill: white;
+
+        -fx-min-width: 120px; /* Largeur minimale */
+        -fx-min-height: 40px;
+        /* Effet de clic */
+
+    }
+}
+.text-field {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-grey-color, white;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 0;
+}
+
+.text-field:focused {
+    -fx-background-color: -fx-primary-color, white;
+}
