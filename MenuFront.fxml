@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="673.0" style="-fx-background-color: #161635;" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuFrontController">
+    <children>
+        <AnchorPane layoutY="62.0" prefHeight="382.0" prefWidth="674.0" style="-fx-background-color: white;">
+            <children>
+                <Label layoutX="269.0" layoutY="54.0" prefHeight="24.0" prefWidth="193.0" style="-fx-background-size: 10;" text="A propos de nous :">
+                    <font>
+                        <Font name="Century Gothic" size="19.0" />
+                    </font>
+                </Label>
+                <Text layoutX="269.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CityZen est une application polyvalente qui a transformé notre expérience urbaine en simplifiant divers aspects de la vie quotidienne. Avec un accent sur la gestion du stationnement intelligent, l'application vous permez de réserver des places de parking et de visualiser la disponibilité en temps réel. Elle simplifie également les interactions avec les services gouvernementaux en permettant le paiement des factures d'eau, de gaz et d'autres services publics. La gestion des transports publics est également optimisée, offrant des horaires en temps réel et des informations sur les retards éventuels. CityZen favorise la vie sociale en informant sur les événements locaux et les actualités. Enfin, l'application facilite le processus de réclamation en vous permettant de signaler rapidement des problèmes ou des préoccupations, contribuant ainsi à l'amélioration de l'environnement urbain" wrappingWidth="367.73675537109375" />
+                <ImageView fitHeight="279.0" fitWidth="217.0" layoutX="29.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/cityzen2.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Label layoutX="28.0" prefHeight="53.0" prefWidth="103.0" style="-fx-background-size: 25;" text="CITYZEN" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="196.0" layoutY="18.0" onMouseClicked="#AcceuilFront" prefHeight="22.0" prefWidth="62.0" style="-fx-background-size: 10;" text="Acceuil" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="272.0" layoutY="20.0" prefHeight="19.0" prefWidth="76.0" style="-fx-background-size: 10;" text="A propos" textFill="#2989c4">
+            <font>
+                <Font name="Century Gothic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="356.0" layoutY="20.0" onMouseClicked="#VieSocialeFront" prefHeight="19.0" prefWidth="87.0" style="-fx-background-size: 10;" text="Vie Sociale" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="467.0" layoutY="19.0" onMouseClicked="#RéclamationFront" prefHeight="21.0" prefWidth="94.0" style="-fx-background-size: 10;" text="Réclamation" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic" size="15.0" />
+            </font>
+        </Label>
+        <Label layoutX="584.0" layoutY="20.0" onMouseClicked="#CompteFront" prefHeight="14.0" prefWidth="76.0" style="-fx-background-size: 10;" text="Compte" textFill="WHITE">
+            <font>
+                <Font name="Century Gothic" size="15.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
