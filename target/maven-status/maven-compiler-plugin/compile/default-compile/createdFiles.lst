@@ -1,0 +1,8 @@
+Service\IService.class
+Service\ServiceForum.class
+controller\AjouterReclamationController.class
+Entites\Reclamation.class
+controller\AfficherReponseController.class
+Entites\Forum.class
+controller\AfficherReclamationController.class
+controller\ModifierReclamationController.class
