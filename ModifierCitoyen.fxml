@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="563.0" prefWidth="600.0" stylesheets="@Style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierCitoyen">
+    <children>
+        <AnchorPane layoutX="127.0" layoutY="47.0" prefHeight="490.0" prefWidth="367.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+            <children>
+                <Text layoutX="90.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-size: 19;" text="Modier Le Compte" wrappingWidth="203.3316650390625">
+                    <font>
+                        <Font name="Century Gothic Bold" size="24.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="txtcin" layoutX="107.0" layoutY="132.0" promptText="CIN" />
+                <TextField fx:id="txtnom" layoutX="107.0" layoutY="169.0" promptText="Nom" />
+                <TextField fx:id="txtprenom" layoutX="108.0" layoutY="203.0" promptText="Prénom" />
+                <TextField fx:id="txttele" layoutX="107.0" layoutY="240.0" promptText="Téléphone" />
+                <TextField fx:id="txtage" layoutX="107.0" layoutY="276.0" promptText="Âge" />
+                <TextField fx:id="txtemail" layoutX="107.0" layoutY="313.0" promptText="E-Mail" />
+                <TextField fx:id="txtsexe" layoutX="108.0" layoutY="384.0" promptText="Sexe" />
+                <PasswordField fx:id="txtmdp" layoutX="107.0" layoutY="351.0" promptText="Mot de passe" />
+                <FontAwesomeIconView glyphName="USER" layoutX="51.0" layoutY="58.0" size="30" wrappingWidth="28.571428298950195" />
+                <Button id="button-mezyen" layoutX="115.0" layoutY="433.0" mnemonicParsing="false" onAction="#ModifierCitoyen" text="Modifier" />
+            <TextField fx:id="txtid" layoutX="107.0" layoutY="96.0" promptText="Id Citoyen" />
+            </children>
+        </AnchorPane>
+    </children>
+
+</AnchorPane>

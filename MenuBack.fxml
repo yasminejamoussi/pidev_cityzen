@@ -8,27 +8,27 @@
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MenuBack">
-    <children>
-        <AnchorPane layoutX="53.0" layoutY="46.0" prefHeight="307.0" prefWidth="494.0" style="-fx-background-color: white; -fx-background-radius: 20;">
-            <children>
-                <Button id="button-mezyen" layoutX="69.0" layoutY="216.0" mnemonicParsing="false" onAction="#gestionFacture" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Factures" />
-                <Button id="button-mezyen" layoutX="69.0" layoutY="159.0" mnemonicParsing="false" onAction="#gestionParking" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Parkings" />
-                <Button id="button-mezyen" layoutX="69.0" layoutY="102.0" minWidth="160.0" mnemonicParsing="false" onAction="#gestionUtilisateur" prefHeight="30.0" prefWidth="160.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Utilisateurs" />
-                <Button id="button-mezyen" layoutX="284.0" layoutY="216.0" mnemonicParsing="false" onAction="#gestionActualite" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Actualités" />
-                <Button id="button-mezyen" layoutX="284.0" layoutY="159.0" mnemonicParsing="false" onAction="#gestionReclamation" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Réclamations" />
-                <Button id="button-mezyen" layoutX="284.0" layoutY="102.0" mnemonicParsing="false" onAction="#gestionTransport" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Transports" />
-                <ImageView fitHeight="66.0" fitWidth="130.0" layoutX="182.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@img/cityzen.png" />
-                    </image>
-                </ImageView>
-                <FontAwesomeIconView glyphName="USERS" layoutX="31.0" layoutY="124.0" size="20" />
-                <FontAwesomeIconView glyphName="BUS" layoutX="247.0" layoutY="124.0" size="20" />
-                <FontAwesomeIconView glyphName="COMMENTS" layoutX="247.0" layoutY="181.0" size="20" />
-                <FontAwesomeIconView glyphName="BULLHORN" layoutX="247.0" layoutY="238.0" size="20" />
-                <FontAwesomeIconView glyphName="CAR" layoutX="31.0" layoutY="181.0" size="20" />
-                <FontAwesomeIconView glyphName="TICKET" layoutX="31.0" layoutY="238.0" size="20" />
-            </children>
-        </AnchorPane>
-    </children>
+   <children>
+      <AnchorPane layoutX="53.0" layoutY="46.0" prefHeight="307.0" prefWidth="494.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Button id="button-mezyen" layoutX="69.0" layoutY="216.0" mnemonicParsing="false" onAction="#gestionFacture" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Factures" />
+            <Button id="button-mezyen" layoutX="69.0" layoutY="159.0" mnemonicParsing="false" onAction="#gestionParking" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Parkings" />
+            <Button id="button-mezyen" layoutX="69.0" layoutY="102.0" minWidth="160.0" mnemonicParsing="false" onAction="#gestionUtilisateur" prefHeight="30.0" prefWidth="160.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Utilisateurs" />
+            <Button id="button-mezyen" layoutX="284.0" layoutY="216.0" mnemonicParsing="false" onAction="#gestionActualite" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Actualités" />
+            <Button id="button-mezyen" layoutX="284.0" layoutY="159.0" mnemonicParsing="false" onAction="#gestionReclamation" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Réclamations" />
+            <Button id="button-mezyen" layoutX="284.0" layoutY="102.0" mnemonicParsing="false" onAction="#gestionTransport" prefHeight="26.0" prefWidth="86.0" style="-fx-min-height: 30; -fx-min-width: 150;" text="Gestion Transports" />
+            <ImageView fitHeight="66.0" fitWidth="130.0" layoutX="182.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/cityzen.png" />
+               </image>
+            </ImageView>
+            <FontAwesomeIconView glyphName="USERS" layoutX="31.0" layoutY="124.0" size="20" />
+            <FontAwesomeIconView glyphName="BUS" layoutX="247.0" layoutY="124.0" size="20" />
+            <FontAwesomeIconView glyphName="COMMENTS" layoutX="247.0" layoutY="181.0" size="20" />
+            <FontAwesomeIconView glyphName="BULLHORN" layoutX="247.0" layoutY="238.0" size="20" />
+            <FontAwesomeIconView glyphName="CAR" layoutX="31.0" layoutY="181.0" size="20" />
+            <FontAwesomeIconView glyphName="TICKET" layoutX="31.0" layoutY="238.0" size="20" />
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="645.0" prefWidth="600.0" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SinscrireCitoyenController">
+    <children>
+        <AnchorPane layoutX="127.0" layoutY="47.0" prefHeight="565.0" prefWidth="367.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+            <children>
+                <Text layoutX="108.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer un compte" wrappingWidth="203.3316650390625">
+                    <font>
+                        <Font name="Century Gothic Bold" size="24.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="txtcin" layoutX="107.0" layoutY="90.0" promptText="CIN" />
+                <TextField fx:id="txtnom" layoutX="107.0" layoutY="127.0" promptText="Nom" />
+                <TextField fx:id="txtprenom" layoutX="108.0" layoutY="161.0" promptText="Prénom" />
+                <TextField fx:id="txttele" layoutX="107.0" layoutY="198.0" promptText="Téléphone" />
+                <TextField fx:id="txtage" layoutX="107.0" layoutY="234.0" promptText="Âge" />
+                <TextField fx:id="txtemail" layoutX="107.0" layoutY="271.0" promptText="E-Mail" />
+                <TextField fx:id="txtsexe" layoutX="108.0" layoutY="342.0" promptText="Sexe" />
+                <PasswordField fx:id="txtmdp" layoutX="107.0" layoutY="309.0" promptText="Mot de passe" />
+                <FontAwesomeIconView glyphName="USER" layoutX="51.0" layoutY="58.0" size="30" wrappingWidth="28.571428298950195" />
+            <Button id="button-mezyen" layoutX="115.0" layoutY="391.0" mnemonicParsing="false" onAction="#sinscrire" text="S'inscrire" />
+            <Label layoutX="95.0" layoutY="470.0" text="Si Vous Avez Déja Un Compte" />
+            <Button id="button-mezyen" layoutX="119.0" layoutY="495.0" mnemonicParsing="false" onAction="#Login" text="Se Connecter" />
+            </children>
+        </AnchorPane>
+    </children>
+
+</AnchorPane>

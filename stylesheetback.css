@@ -40,7 +40,7 @@
 }
 
 #button-mezyen {
-{
+
     -fx-translate-x: -100%;
     -fx-translate-y: 0;
     -fx-pref-width: 300%;
@@ -59,7 +59,7 @@
         /* Effet de clic */
 
     }
-}
+
 .text-field {
     -fx-accent: -fx-primary-color;
     -fx-background-color: -fx-grey-color, white;

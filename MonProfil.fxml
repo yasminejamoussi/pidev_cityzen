@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MonProfil">
+   <children>
+      <AnchorPane layoutX="153.0" layoutY="27.0" prefHeight="346.0" prefWidth="293.0" style="-fx-background-color: White; -fx-background-radius: 20;">
+         <children>
+            <FontAwesomeIconView glyphName="USER" layoutX="139.0" layoutY="39.0" size="25" wrappingWidth="14.4000244140625" />
+            <TextField fx:id="txtnom" layoutX="73.0" layoutY="81.0" promptText="Nom" />
+            <TextField fx:id="txtprenom" layoutX="73.0" layoutY="126.0" promptText="Prénom" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

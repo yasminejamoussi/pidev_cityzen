@@ -10,37 +10,37 @@
 <AnchorPane prefHeight="469.0" prefWidth="716.0" style="-fx-background-color: #161635;" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AcceuilFront">
     <children>
         <AnchorPane layoutY="62.0" prefHeight="407.0" prefWidth="716.0" style="-fx-background-color: white;">
-            <children>
-                <Label layoutX="38.0" layoutY="32.0" prefHeight="54.0" prefWidth="165.0" style="-fx-background-size: 10;" text="Nos Services :" textFill="#004c7b">
-                    <font>
-                        <Font name="Century Gothic Bold" size="24.0" />
-                    </font>
-                </Label>
-                <AnchorPane layoutX="252.0" layoutY="106.0" prefHeight="217.0" prefWidth="211.0" style="-fx-background-color: #e6e3e3; -fx-background-radius: 10;" />
-                <AnchorPane layoutX="479.0" layoutY="106.0" prefHeight="217.0" prefWidth="211.0" style="-fx-background-color: #e6e3e3; -fx-background-radius: 10;" />
-                <AnchorPane layoutX="24.0" layoutY="106.0" prefHeight="217.0" prefWidth="211.0" style="-fx-background-color: #e6e3e3; -fx-background-radius: 10;" />
-                <Text layoutX="42.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naviguez la ville en toute facilité grâce à notre interface conviviale dédiée aux transports publics. Consultez les horaires, planifiez vos trajets et restez informé des retards, le tout dans une expérience visuelle claire et intuitive." wrappingWidth="175.2330780029297" />
-                <Text layoutX="49.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Publique">
-                    <font>
-                        <Font name="Century Gothic Bold" size="14.0" />
-                    </font></Text>
-                <Text layoutX="273.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parking">
-                    <font>
-                        <Font name="Century Gothic Bold" size="14.0" />
-                    </font></Text>
-                <Text layoutX="273.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Optimisez votre stationnement avecCityZen. Réservez facilement votre place de parking, visualisez la disponibilité en temps réel et consultez votre historique de transactions, le tout dans une interface conviviale qui simplifie votre expérience de stationnement urbain." wrappingWidth="182.43309020996094" />
-                <Text layoutX="495.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Régler vos factures gouvernementales n'a jamais été aussi simple. Notre interface bien organisée vous permet de payer rapidement vos factures d'eau, de gaz et autres services publics en quelques clics, avec des confirmations claires et des reçus à portée de main." wrappingWidth="182.43309020996094" />
-                <Text layoutX="495.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Services Gouvernementaux">
-                    <font>
-                        <Font name="Century Gothic Bold" size="14.0" />
-                    </font></Text>
-                <Button id="button-mezyen" layoutX="104.0" layoutY="341.0" mnemonicParsing="false" onAction="#transportFront" prefHeight="40.0" prefWidth="103.0" style="-fx-min-height: 40; -fx-min-width: 50;" />
-                <FontAwesomeIconView fill="WHITE" glyphName="BUS" layoutX="121.0" layoutY="367.0" size="18" />
-                <Button id="button-mezyen" layoutX="562.0" layoutY="341.0" mnemonicParsing="false" onAction="#factureFront" style="-fx-min-height: 40; -fx-min-width: 50;" />
-                <FontAwesomeIconView fill="WHITE" glyphName="TICKET" layoutX="578.0" layoutY="367.0" size="18" />
-                <Button id="button-mezyen" layoutX="326.0" layoutY="341.0" mnemonicParsing="false" onAction="#parkingFront" style="-fx-min-height: 40; -fx-min-width: 50;" />
-                <FontAwesomeIconView fill="WHITE" glyphName="CAR" layoutX="341.0" layoutY="367.0" size="18" />
-            </children>
+         <children>
+            <Label layoutX="38.0" layoutY="32.0" prefHeight="54.0" prefWidth="165.0" style="-fx-background-size: 10;" text="Nos Services :" textFill="#004c7b">
+               <font>
+                  <Font name="Century Gothic Bold" size="24.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="252.0" layoutY="106.0" prefHeight="217.0" prefWidth="211.0" style="-fx-background-color: #e6e3e3; -fx-background-radius: 10;" />
+            <AnchorPane layoutX="479.0" layoutY="106.0" prefHeight="217.0" prefWidth="211.0" style="-fx-background-color: #e6e3e3; -fx-background-radius: 10;" />
+            <AnchorPane layoutX="24.0" layoutY="106.0" prefHeight="217.0" prefWidth="211.0" style="-fx-background-color: #e6e3e3; -fx-background-radius: 10;" />
+            <Text layoutX="42.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Naviguez la ville en toute facilité grâce à notre interface conviviale dédiée aux transports publics. Consultez les horaires, planifiez vos trajets et restez informé des retards, le tout dans une expérience visuelle claire et intuitive." wrappingWidth="175.2330780029297" />
+            <Text layoutX="49.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transport Publique">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font></Text>
+            <Text layoutX="273.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Parking">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font></Text>
+            <Text layoutX="273.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Optimisez votre stationnement avecCityZen. Réservez facilement votre place de parking, visualisez la disponibilité en temps réel et consultez votre historique de transactions, le tout dans une interface conviviale qui simplifie votre expérience de stationnement urbain." wrappingWidth="182.43309020996094" />
+            <Text layoutX="495.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Régler vos factures gouvernementales n'a jamais été aussi simple. Notre interface bien organisée vous permet de payer rapidement vos factures d'eau, de gaz et autres services publics en quelques clics, avec des confirmations claires et des reçus à portée de main." wrappingWidth="182.43309020996094" />
+            <Text layoutX="495.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Services Gouvernementaux">
+               <font>
+                  <Font name="Century Gothic Bold" size="14.0" />
+               </font></Text>
+            <Button id="button-mezyen" layoutX="104.0" layoutY="341.0" mnemonicParsing="false" onAction="#transportFront" prefHeight="40.0" prefWidth="103.0" style="-fx-min-height: 40; -fx-min-width: 50;" />
+            <FontAwesomeIconView fill="WHITE" glyphName="BUS" layoutX="121.0" layoutY="367.0" size="18" />
+            <Button id="button-mezyen" layoutX="562.0" layoutY="341.0" mnemonicParsing="false" onAction="#factureFront" style="-fx-min-height: 40; -fx-min-width: 50;" />
+            <FontAwesomeIconView fill="WHITE" glyphName="TICKET" layoutX="578.0" layoutY="367.0" size="18" />
+            <Button id="button-mezyen" layoutX="326.0" layoutY="341.0" mnemonicParsing="false" onAction="#parkingFront" style="-fx-min-height: 40; -fx-min-width: 50;" />
+            <FontAwesomeIconView fill="WHITE" glyphName="CAR" layoutX="341.0" layoutY="367.0" size="18" />
+         </children>
         </AnchorPane>
         <Label layoutX="28.0" prefHeight="53.0" prefWidth="103.0" style="-fx-background-size: 25;" text="CITYZEN" textFill="WHITE">
             <font>
