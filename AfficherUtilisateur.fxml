@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,41 +10,60 @@
 
 <AnchorPane prefHeight="649.0" prefWidth="857.0" stylesheets="@Style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherUtilisateurController">
    <children>
-      <TableView fx:id="tableviewcitoyen" layoutX="14.0" layoutY="60.0" prefHeight="202.0" prefWidth="671.0">
-        <columns>
-          <TableColumn fx:id="colid" prefWidth="84.80001640319824" text="Id Utilisateur" />
-          <TableColumn fx:id="colcin" prefWidth="65.60001373291016" text="CIN" />
-            <TableColumn fx:id="colnom" prefWidth="75.0" text="Nom" />
-            <TableColumn fx:id="colprenom" prefWidth="75.0" text="Prénom" />
-            <TableColumn fx:id="colnum" prefWidth="75.0" text="Num" />
-            <TableColumn fx:id="colage" prefWidth="75.0" text="Age" />
-            <TableColumn fx:id="colmail" prefWidth="75.0" text="Mail" />
-            <TableColumn fx:id="colmdp" prefWidth="75.0" text="MDP" />
-            <TableColumn fx:id="colsexe" prefWidth="75.0" text="Sexe" />
-        </columns>
-      </TableView>
-      <Button id="button-mezyen" layoutX="699.0" layoutY="67.0" mnemonicParsing="false" onAction="#supprimerCitoyen" text="Supprimer" />
-      <TableView fx:id="tableviewadmin" layoutX="58.0" layoutY="370.0" prefHeight="202.0" prefWidth="243.0">
-         <columns>
-            <TableColumn fx:id="colidadmin" prefWidth="84.80001640319824" text="Id Utilisateur" />
-            <TableColumn fx:id="colmailadmin" prefWidth="75.0" text="Mail" />
-            <TableColumn fx:id="colmdpadmin" prefWidth="75.0" text="MDP" />
-         </columns>
-      </TableView>
-      <Button id="button-mezyen" layoutX="66.0" layoutY="587.0" mnemonicParsing="false" onAction="#supprimerAdmin" text="Supprimer" />
-      <Text fill="WHITE" layoutX="35.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Des Citoyens : ">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="65.0" layoutY="347.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Des Administrateurs :">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <Button id="button-mezyen" layoutX="202.0" layoutY="587.0" mnemonicParsing="false" onAction="#ModifierAdmin" text="Modifier" />
-      <Button id="button-mezyen" layoutX="699.0" layoutY="121.0" mnemonicParsing="false" onAction="#ModifierCitoyen" text="Modifier" />
-      <Button id="button-mezyen" layoutX="350.0" layoutY="587.0" mnemonicParsing="false" onAction="#AjouterAdmin" text="Ajouter" />
-      <Button id="button-mezyen" layoutX="202.0" layoutY="273.0" mnemonicParsing="false" onAction="#AfficherUtilisateur" text="Afficher Tout Les Utilisateurs" />
+      <AnchorPane layoutX="26.0" layoutY="27.0" prefHeight="594.0" prefWidth="782.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Text layoutX="90.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Des Citoyens : ">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tableviewcitoyen" layoutX="61.0" layoutY="80.0" prefHeight="185.0" prefWidth="671.0">
+              <columns>
+                <TableColumn fx:id="colid" prefWidth="84.80001640319824" text="Id Utilisateur" />
+                <TableColumn fx:id="colcin" prefWidth="65.60001373291016" text="CIN" />
+                  <TableColumn fx:id="colnom" prefWidth="75.0" text="Nom" />
+                  <TableColumn fx:id="colprenom" prefWidth="75.0" text="Prénom" />
+                  <TableColumn fx:id="colnum" prefWidth="75.0" text="Num" />
+                  <TableColumn fx:id="colage" prefWidth="50.39996337890625" text="Age" />
+                  <TableColumn fx:id="colmail" prefWidth="100.0" text="Mail" />
+                  <TableColumn fx:id="colmdp" prefWidth="75.0" text="MDP" />
+                  <TableColumn fx:id="colsexe" prefWidth="75.0" text="Sexe" />
+              </columns>
+            </TableView>
+            <Button id="button-mezyen" layoutX="606.0" layoutY="277.0" mnemonicParsing="false" onAction="#supprimerCitoyen" style="-fx-min-width: 50;" />
+            <Button id="button-mezyen" layoutX="671.0" layoutY="277.0" mnemonicParsing="false" onAction="#ModifierCitoyen" style="-fx-min-width: 50;" />
+            <TableView fx:id="tableviewadmin" layoutX="161.0" layoutY="372.0" prefHeight="186.0" prefWidth="235.0">
+               <columns>
+                  <TableColumn fx:id="colidadmin" prefWidth="84.80001640319824" text="Id Utilisateur" />
+                  <TableColumn fx:id="colmailadmin" prefWidth="75.0" text="Mail" />
+                  <TableColumn fx:id="colmdpadmin" prefWidth="75.0" text="MDP" />
+               </columns>
+            </TableView>
+            <Button id="button-mezyen" layoutX="587.0" layoutY="474.0" mnemonicParsing="false" onAction="#AfficherUtilisateur" prefHeight="40.0" prefWidth="182.0" style="-fx-min-width: 50;" />
+            <Text layoutX="90.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste Des Administrateurs :">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Text>
+            <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="623.0" layoutY="303.0" size="20" text="" />
+            <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="686.0" layoutY="303.0" size="20" />
+            <Button id="button-mezyen" layoutX="92.0" layoutY="502.0" minHeight="20.0" mnemonicParsing="false" onAction="#AjouterAdmin" prefHeight="52.0" prefWidth="120.0" style="-fx-min-width: 50;">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Button>
+            <Button id="button-mezyen" layoutX="92.0" layoutY="442.0" mnemonicParsing="false" onAction="#ModifierAdmin" style="-fx-min-width: 50;" />
+            <Button id="button-mezyen" layoutX="92.0" layoutY="382.0" mnemonicParsing="false" onAction="#supprimerAdmin" style="-fx-min-width: 50;" />
+            <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="110.0" layoutY="410.0" size="20" text="" />
+            <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="109.0" layoutY="469.0" size="20" />
+            <Text layoutX="492.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste de tout les Utilisateurs :">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font>
+            </Text>
+            <FontAwesomeIconView fill="WHITE" glyphName="USERS" layoutX="601.0" layoutY="500.0" size="20" />
+            <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="108.0" layoutY="530.0" size="20" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

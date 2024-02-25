@@ -5,17 +5,21 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="502.0" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
-      <AnchorPane layoutX="103.0" layoutY="59.0" prefHeight="281.0" prefWidth="295.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+      <AnchorPane layoutX="83.0" layoutY="33.0" prefHeight="333.0" prefWidth="336.0" style="-fx-background-color: white; -fx-background-radius: 20;">
          <children>
-            <FontAwesomeIconView glyphName="USER" layoutX="132.0" layoutY="49.0" size="30" />
-            <TextField fx:id="txtemail" layoutX="68.0" layoutY="99.0" promptText="E-mail" />
-            <Button id="button-mezyen" layoutX="84.0" layoutY="221.0" mnemonicParsing="false" onAction="#Login" text="Se Connecter" />
-            <PasswordField fx:id="txtmdp" layoutX="68.0" layoutY="152.0" promptText="Mot De Passe" />
-            <Text layoutX="97.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salemou Alaykom" />
+            <FontAwesomeIconView glyphName="USER" layoutX="157.0" layoutY="54.0" size="30" />
+            <TextField fx:id="txtemail" layoutX="93.0" layoutY="141.0" promptText="E-mail" />
+            <Button id="button-mezyen" layoutX="108.0" layoutY="252.0" minHeight="36.0" mnemonicParsing="false" onAction="#Login" prefHeight="36.0" prefWidth="150.0" text="Se Connecter" />
+            <PasswordField fx:id="txtmdp" layoutX="93.0" layoutY="194.0" promptText="Mot De Passe" />
+            <Text layoutX="77.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue à CityZen">
+               <font>
+                  <Font name="Century Gothic Bold" size="18.0" />
+               </font></Text>
          </children>
       </AnchorPane>
    </children>

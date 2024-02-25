@@ -9,21 +9,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="448.0" prefWidth="535.0" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterAdmin">
+<AnchorPane prefHeight="448.0" prefWidth="535.0" stylesheets="@Style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterAdmin">
     <children>
-        <AnchorPane layoutX="88.0" layoutY="47.0" prefHeight="354.0" prefWidth="367.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+        <AnchorPane layoutX="88.0" layoutY="47.0" prefHeight="367.0" prefWidth="367.0" style="-fx-background-color: white; -fx-background-radius: 20;">
             <children>
-                <Text layoutX="108.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer un compte" wrappingWidth="203.3316650390625">
+                <Text layoutX="114.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Créer un compte" wrappingWidth="203.3316650390625">
                     <font>
                         <Font name="Century Gothic Bold" size="24.0" />
                     </font>
                 </Text>
-                <TextField fx:id="txtemail" layoutX="109.0" layoutY="93.0" promptText="E-mail" />
-                <PasswordField fx:id="txtmdp" layoutX="107.0" layoutY="129.0" promptText="Mot de passe" />
-                <FontAwesomeIconView glyphName="USER" layoutX="51.0" layoutY="58.0" size="30" wrappingWidth="28.571428298950195" />
-                <Button id="button-mezyen" layoutX="115.0" layoutY="184.0" mnemonicParsing="false" onAction="#sinscrire" text="S'inscrire" />
-                <Label layoutX="95.0" layoutY="255.0" text="Si Vous Avez Déja Un Compte" />
-                <Button id="button-mezyen" layoutX="119.0" layoutY="280.0" mnemonicParsing="false" onAction="#Login" text="Se Connecter" />
+                <TextField fx:id="txtemail" layoutX="109.0" layoutY="109.0" promptText="E-mail" />
+                <PasswordField fx:id="txtmdp" layoutX="109.0" layoutY="151.0" promptText="Mot de passe" />
+                <FontAwesomeIconView glyphName="USER" layoutX="71.0" layoutY="70.0" size="30" wrappingWidth="28.571428298950195" />
+                <Button id="button-mezyen" layoutX="127.0" layoutY="209.0" mnemonicParsing="false" onAction="#sinscrire" text="S'inscrire" />
+                <Label layoutX="107.0" layoutY="273.0" text="Si Vous Avez Déja Un Compte" />
+                <Button id="button-mezyen" layoutX="127.0" layoutY="300.0" mnemonicParsing="false" onAction="#Login" text="Se Connecter" />
 
             </children>
         </AnchorPane>
