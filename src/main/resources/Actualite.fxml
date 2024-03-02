@@ -10,36 +10,43 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="502.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ActualiteController">
+<AnchorPane prefHeight="502.0" prefWidth="831.0" stylesheets="@Style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ActualiteController">
    <children>
-      <Label layoutX="52.0" layoutY="97.0" text="Titre :" />
-      <Label layoutX="40.0" layoutY="132.0" text="Contenu :" />
-      <Label layoutX="50.0" layoutY="337.0" text="Date :" />
-      <Label layoutX="37.0" layoutY="293.0" text="Catégorie: " />
-      <Label layoutX="45.0" layoutY="381.0" text="Auteur :" />
-      <TextField fx:id="txttitreA" layoutX="105.0" layoutY="90.0" promptText="Titre" />
-      <TextArea fx:id="txtcontenuAct" layoutX="105.0" layoutY="149.0" prefHeight="105.0" prefWidth="149.0" promptText="Description" />
-      <ComboBox fx:id="txtcategA" layoutX="105.0" layoutY="289.0" prefWidth="150.0" promptText="Sélectionnez" />
-      <DatePicker fx:id="txtdateAct" layoutX="102.0" layoutY="333.0" />
-      <TextField fx:id="txtauteurA" layoutX="105.0" layoutY="377.0" promptText="Nom Auteur" />
-      <Button layoutX="309.0" layoutY="434.0" mnemonicParsing="false" onAction="#AjouterActualitee" text="Ajouter" />
-      <TableView fx:id="tableviewAct" layoutX="302.0" layoutY="90.0" prefHeight="287.0" prefWidth="448.0">
-        <columns>
-          <TableColumn fx:id="coltitreA" prefWidth="75.0" text="Titre" />
-          <TableColumn fx:id="colcontenuAct" prefWidth="75.0" text="Contenu" />
-            <TableColumn fx:id="colcategA" prefWidth="75.0" text="Catégorie" />
-            <TableColumn fx:id="coldateAct" prefWidth="75.0" text="Date" />
-            <TableColumn fx:id="colauteurA" prefWidth="75.0" text="Auteur" />
-            <TableColumn fx:id="colidAct1" prefWidth="75.0" text="Id" />
-        </columns>
-      </TableView>
-      <Button layoutX="397.0" layoutY="434.0" mnemonicParsing="false" onAction="#SupprimerActualitee" text="Supprimer" />
-      <Button layoutX="511.0" layoutY="434.0" mnemonicParsing="false" onAction="#ModifierActualitee" text="Modifier" />
-      <Label layoutX="303.0" layoutY="40.0" prefHeight="27.0" prefWidth="200.0" text="Gérer Actualités">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="37.0" layoutY="41.0" prefHeight="441.0" prefWidth="776.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Button id="button-mezyen" layoutX="575.0" layoutY="387.0" mnemonicParsing="false" onAction="#ModifierActualitee" text="Modifier" />
+            <Button id="button-mezyen" layoutX="444.0" layoutY="387.0" mnemonicParsing="false" onAction="#SupprimerActualitee" text="Supprimer" />
+            <Button id="button-mezyen" layoutX="312.0" layoutY="387.0" mnemonicParsing="false" onAction="#AjouterActualitee" text="Ajouter" />
+            <Text layoutX="270.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gérer Actualités">
+               <font>
+                  <Font name="Century Gothic Bold" size="23.0" />
+               </font>
+            </Text>
+            <TableView fx:id="tableviewAct" layoutX="267.0" layoutY="77.0" prefHeight="287.0" prefWidth="502.0">
+              <columns>
+                <TableColumn fx:id="coltitreA" prefWidth="75.0" text="Titre" />
+                <TableColumn fx:id="colcontenuAct" prefWidth="75.0" text="Contenu" />
+                  <TableColumn fx:id="colcategA" prefWidth="75.0" text="Catégorie" />
+                  <TableColumn fx:id="coldateAct" prefWidth="75.0" text="Date" />
+                  <TableColumn fx:id="colauteurA" prefWidth="75.0" text="Auteur" />
+                  <TableColumn fx:id="colidAct1" prefWidth="40.66668701171875" text="Id" />
+                  <TableColumn fx:id="colimagePath" prefWidth="109.99993896484375" text="ImagePath" />
+              </columns>
+            </TableView>
+            <Button id="button-mezyen" layoutX="94.0" layoutY="387.0" mnemonicParsing="false" onAction="#onSelectImage" prefHeight="40.0" prefWidth="167.0" text="Séléctionner Image" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="76.0" layoutY="120.0" text="Titre :" />
+      <Label layoutX="64.0" layoutY="155.0" text="Contenu :" />
+      <Label layoutX="74.0" layoutY="360.0" text="Date :" />
+      <Label layoutX="61.0" layoutY="316.0" text="Catégorie: " />
+      <Label layoutX="69.0" layoutY="404.0" text="Auteur :" />
+      <TextField fx:id="txttitreA" layoutX="129.0" layoutY="113.0" promptText="Titre" />
+      <TextArea fx:id="txtcontenuAct" layoutX="129.0" layoutY="172.0" prefHeight="105.0" prefWidth="149.0" promptText="Description" />
+      <ComboBox fx:id="txtcategA" layoutX="129.0" layoutY="312.0" prefWidth="150.0" promptText="Sélectionnez" />
+      <DatePicker fx:id="txtdateAct" layoutX="126.0" layoutY="356.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="txtauteurA" layoutX="129.0" layoutY="400.0" promptText="Nom Auteur" />
    </children>
 </AnchorPane>

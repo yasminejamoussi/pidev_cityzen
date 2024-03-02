@@ -8,24 +8,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="502.0" prefWidth="767.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommentaireController">
+<AnchorPane prefHeight="560.0" prefWidth="785.0" stylesheets="@Style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherCommentaireController">
    <children>
-      <Label layoutX="101.0" layoutY="77.0" text="Contenu :">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
+      <AnchorPane layoutX="60.0" layoutY="40.0" prefHeight="489.0" prefWidth="671.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <Label layoutX="238.0" layoutY="21.0" prefHeight="37.0" prefWidth="233.0" text="Gérer Commentaires">
+               <font>
+                  <Font name="Century Gothic Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <Label fx:id="lbcontenu" layoutX="174.0" layoutY="77.0" prefHeight="17.0" prefWidth="35.0" />
-      <TableView fx:id="tableviewc" layoutX="52.0" layoutY="118.0" onMouseClicked="#handleTableClick" prefHeight="200.0" prefWidth="575.0">
+      <TableView fx:id="tableviewc" layoutX="111.0" layoutY="119.0" onMouseClicked="#handleTableClick" prefHeight="200.0" prefWidth="575.0">
         <columns>
           <TableColumn fx:id="colcontenuC" prefWidth="199.99996948242188" text="Commentaire" />
           <TableColumn fx:id="coldateC" minWidth="0.0" prefWidth="196.0" text="Date publication" />
             <TableColumn fx:id="colidCom1" prefWidth="199.99996948242188" text="Id" />
         </columns>
       </TableView>
-      <Button layoutX="550.0" layoutY="416.0" mnemonicParsing="false" onAction="#SupprimerCommentairee" prefHeight="25.0" prefWidth="87.0" text="Supprimer" />
-      <Button layoutX="472.0" layoutY="416.0" mnemonicParsing="false" onAction="#ModifierCommentairee" text="Modifier" />
-      <Button layoutX="406.0" layoutY="416.0" mnemonicParsing="false" onAction="#AjouterCommentairee" text="Ajouter" />
-      <TextArea fx:id="txtcontenuC1" layoutX="75.0" layoutY="332.0" prefHeight="35.0" prefWidth="551.0" />
+      <Button id="button-mezyen" layoutX="493.0" layoutY="469.0" mnemonicParsing="false" onAction="#SupprimerCommentairee" prefHeight="37.0" prefWidth="89.0" text="Supprimer" />
+      <Button id="button-mezyen" layoutX="351.0" layoutY="469.0" mnemonicParsing="false" onAction="#ModifierCommentairee" prefHeight="37.0" prefWidth="89.0" text="Modifier" />
+      <Button id="button-mezyen" layoutX="205.0" layoutY="469.0" mnemonicParsing="false" onAction="#AjouterCommentairee" prefHeight="37.0" prefWidth="89.0" text="Ajouter" />
+      <TextArea fx:id="txtcontenuC1" layoutX="108.0" layoutY="363.0" prefHeight="71.0" prefWidth="575.0" promptText="Ajouter votre commentaire ici" />
+      <Label layoutX="111.0" layoutY="335.0" text="Commentaire :">
+         <font>
+            <Font name="Century Gothic Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

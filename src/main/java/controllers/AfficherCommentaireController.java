@@ -21,6 +21,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 public class AfficherCommentaireController {
 
@@ -97,7 +98,7 @@ public class AfficherCommentaireController {
 
         try {
             if (selectedActualite != null) {
-                // Assuming you have a method in ServiceCommentaire to retrieve comments based on selected Actualite
+
                 List<Commentaire> list = ser.readCommentairesForSelectedActualite(selectedActualite);
 
                 ObservableList<Commentaire> obse = FXCollections.observableList(list);
@@ -109,7 +110,7 @@ public class AfficherCommentaireController {
                 System.out.println("Aucune Actualitée sélectionnée.");
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle the exception properly
+            e.printStackTrace();
         }
 
     }
@@ -121,22 +122,20 @@ public class AfficherCommentaireController {
         if (selectedActualite != null) {
             // Obtenez la date actuelle en tant que LocalDate
             LocalDate currentDate = LocalDate.now();
-            // Convertissez LocalDate en java.sql.Date
+
             java.sql.Date sqlDate = java.sql.Date.valueOf(currentDate);
-            // Créer un nouveau commentaire avec la date actuelle
+
             Commentaire rec = new Commentaire(selectedActualite.getId(), 7, txtcontenuC1.getText(),sqlDate);
 
             try {
-                // Ajouter le commentaire à la base de données
                 ser.ajouter(rec);
-                // Rafraîchir le TableView pour afficher le nouveau commentaire
                 initialize();
             } catch (SQLException e) {
                 // Gérer les exceptions
                 e.printStackTrace();
             }
         } else {
-            // Aucune Actualite sélectionnée, afficher un message d'erreur
+
             System.out.println("Aucune Actualitée sélectionnée.");
         }
     }
@@ -147,27 +146,26 @@ public class AfficherCommentaireController {
     void ModifierCommentairee(ActionEvent event) {
         Commentaire commentaireSelectionne = tableviewc.getSelectionModel().getSelectedItem();
         if (commentaireSelectionne != null) {
-            // Passer le commentaire sélectionné ainsi que l'actualité associée
-            ouvrirInterfaceModification(commentaireSelectionne, selectedActualite);
 
+            TextInputDialog dialog = new TextInputDialog(commentaireSelectionne.getContenuC());
+            dialog.setTitle("Modifier Commentaire");
+            dialog.setHeaderText("Entrez le nouveau commentaire pour l'actualité :");
+            dialog.setContentText("Nouveau Commentaire:");
+
+            Optional<String> result = dialog.showAndWait();
+
+            result.ifPresent(modifiedMessage -> {
+                commentaireSelectionne.setContenuC(modifiedMessage);
+
+                try {
+                    ser.update(commentaireSelectionne);
+                    initialize();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
         } else {
-            System.out.println("Aucun Commentaire sélectionné.");
-        }
-    }
-    private void ouvrirInterfaceModification(Commentaire commentaire, Actualite actualite) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierCommentaire.fxml"));
-        Parent root;
-        try {
-            root = loader.load();
-            ModifierCommentaireController modifierController = loader.getController();
-            modifierController.setObservableList(tableviewc.getItems());
-            modifierController.initDonneesCommentaire(commentaire);
-            modifierController.setActualite(actualite); // Passez l'actualité associée au commentaire
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Aucun Commentaire sélectionnée.");
         }
     }
 
@@ -184,14 +182,11 @@ public class AfficherCommentaireController {
     }
     @FXML
     public void handleTableClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getClickCount() == 2) { // Double-click
+        if (mouseEvent.getClickCount() == 2) {
             Commentaire selectedCommentaire= tableviewc.getSelectionModel().getSelectedItem();
             if (selectedCommentaire != null) {
-                // Set the Forum message to the TextField for editing
+
                 txtcontenuC1.setText(selectedCommentaire.getContenuC());
-
-                //txtnid.setText(String.valueOf(selectedForum.getId()));
-
             }
         }
     }

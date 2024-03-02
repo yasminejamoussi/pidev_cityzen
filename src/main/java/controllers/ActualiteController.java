@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -31,7 +32,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+
 
 public class ActualiteController {
 
@@ -45,11 +49,14 @@ public class ActualiteController {
     private TextArea txtcontenuAct;
     @FXML
     private DatePicker txtdateAct;
+    private File selectedFile;
 
     @FXML
     private TextField txttitreA;
     @FXML
     private TableColumn<Actualite, String> colauteurA;
+    @FXML
+    private TableColumn<Actualite, String> colimagePath;
 
     @FXML
     private TableColumn<Actualite, String> colcategA;
@@ -103,6 +110,7 @@ public class ActualiteController {
         coldateAct.setCellValueFactory(new PropertyValueFactory<>("dateA"));
         colcategA.setCellValueFactory(new PropertyValueFactory<>("categorie"));
         colauteurA.setCellValueFactory(new PropertyValueFactory<>("auteur"));
+        colimagePath.setCellValueFactory(new PropertyValueFactory<>("imagepath"));
 
         // Charger les données de la base de données dans votre liste observable au démarrage
         try {
@@ -165,71 +173,121 @@ public class ActualiteController {
         }
     }
 
-    @FXML
-    void AjouterActualitee(ActionEvent event) {
-        try {
-            String titre = txttitreA.getText();
-            String contenu = txtcontenuAct.getText();
-            LocalDate localDate = txtdateAct.getValue();
-            Date dateA = java.sql.Date.valueOf(localDate);
-            String categorie = txtcategA.getValue();
-            String auteur = txtauteurA.getText();
+  @FXML
+  void AjouterActualitee(ActionEvent event) throws SQLException {
+      try {
+          String titre = txttitreA.getText();
+          String contenu = txtcontenuAct.getText();
+          LocalDate localDate = txtdateAct.getValue();
+          Date dateA = java.sql.Date.valueOf(localDate);
+          String categorie = txtcategA.getValue();
+          String auteur = txtauteurA.getText();
 
-            String titreRegex =  "^[A-Za-z\\s]*$"; // Expression régulière pour le titre
-            String auteurRegex = "^[A-Za-z\\s]*$";   // Expression régulière pour l'auteur
+          String titreRegex = "^[A-Za-z\\s]*$";
+          String auteurRegex = "^[A-Za-z\\s]*$";
 
-            if (titre.matches(titreRegex) && auteur.matches(auteurRegex)) {
-                Actualite a1 = new Actualite(titre, contenu, dateA, categorie, auteur);
-                try {
-                    ser.ajouter(a1);
-                    listeActualites.clear();
-                    listeActualites.addAll(ser.readAll());
+          if (titre.matches(titreRegex) && auteur.matches(auteurRegex)) {
+              if (!titre.isEmpty() && !contenu.isEmpty() && !auteur.isEmpty()) {
 
-                    Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert1.setTitle("Confirmation");
-                    alert1.setContentText("Actualité ajoutée avec succès");
-                    alert1.showAndWait();
+                  if (ser.isTitreUnique(titre)) {
+                      // Appel à onSelectImage pour obtenir le chemin de l'image sélectionnée
+                      FileChooser fileChooser = new FileChooser();
+                      fileChooser.setTitle("Choisir une image");
+                      fileChooser.setInitialDirectory(new File("C:/Users/user/Desktop/TestConnexion/src/main/resources/Image"));
+                      File selectedFile = fileChooser.showOpenDialog(null);
+                      String imagePath = null;
+                      if (selectedFile != null) {
+                          // Récupérer le chemin de l'image sélectionnée
+                          imagePath = selectedFile.toURI().toString();
+                          imagePath = imagePath.substring(8);
+                          //sout
+                      }
+                         if(imagePath!=null){
+                      // Créer un objet Actualite avec toutes les informations
+                      Actualite a1 = new Actualite(titre, contenu, dateA, categorie, auteur,imagePath);
+                      // Définir le chemin de l'image dans l'objet Actualite
+                      a1.setImagepath(imagePath);
 
-                    txttitreA.clear();
-                    txtcontenuAct.clear();
-                    txtdateAct.setValue(null);
-                    txtcategA.getSelectionModel().clearSelection();
-                    txtauteurA.clear();
+                      try {
+                          // Appel à la méthode ajouter du service avec l'objet Actualite
+                          ser.ajouter(a1);
+                          listeActualites.clear();
+                          listeActualites.addAll(ser.readAll());
 
-                } catch (SQLException | NumberFormatException e) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Error");
-                    alert.setContentText(e.getMessage());
-                    alert.showAndWait();
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Entrée invalide");
-                alert.setHeaderText(null);
-                alert.setContentText("Veuillez fournir des informations valides pour tous les champs.");
-                alert.showAndWait();
-            }
-        } finally {
-            // Traitez les opérations finales ici si nécessaire
-        }
-    }
+                          FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherActualites.fxml"));
+                          Parent parent = loader.load();
+                          AfficherActualitesController controller = loader.getController();
+                          controller.ajouterActualite(a1);
+
+
+                          Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
+                          alert1.setTitle("Confirmation");
+                          alert1.setContentText("Actualité ajoutée avec succès");
+                          alert1.showAndWait();
+
+                          txttitreA.clear();
+                          txtcontenuAct.clear();
+                          txtdateAct.setValue(null);
+                          txtcategA.getSelectionModel().clearSelection();
+                          txtauteurA.clear();
+
+                      } catch (SQLException | NumberFormatException e) {
+                          Alert alert = new Alert(Alert.AlertType.ERROR);
+                          alert.setTitle("Error");
+                          alert.setContentText(e.getMessage());
+                          alert.showAndWait();
+                      } catch (IOException e) {
+                          throw new RuntimeException(e);
+                      }
+                  }else{
+    // Afficher un message d'erreur si aucune image n'a été sélectionnée
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Image non sélectionnée");
+    alert.setHeaderText(null);
+    alert.setContentText("Veuillez sélectionner une image.");
+    alert.showAndWait();
+}
+                  }else {
+                      Alert alert = new Alert(Alert.AlertType.ERROR);
+                      alert.setTitle("Titre existant");
+                      alert.setHeaderText(null);
+                      alert.setContentText("Le titre saisi existe déjà. Veuillez saisir un titre unique.");
+                      alert.showAndWait();
+                  }
+              } else {
+                  Alert alert = new Alert(Alert.AlertType.ERROR);
+                  alert.setTitle("Entrée invalide");
+                  alert.setHeaderText(null);
+                  alert.setContentText("Veuillez remplir tous les champs.");
+                  alert.showAndWait();
+              }
+          } else {
+              Alert alert = new Alert(Alert.AlertType.ERROR);
+              alert.setTitle("Entrée invalide");
+              alert.setHeaderText(null);
+              alert.setContentText("Veuillez fournir des informations valides pour tous les champs.");
+              alert.showAndWait();
+          }
+      } finally {
+          // Traitez les opérations finales ici si nécessaire
+      }
+  }
+
 
     @FXML
     void SupprimerActualitee(ActionEvent event) {
-// Logique pour supprimer le parking sélectionné
+
         Actualite actualiteSelectionne = tableviewAct.getSelectionModel().getSelectedItem();
         if (actualiteSelectionne != null) {
-            // Appel de votre service ou méthode pour supprimer le parking
             ser.delete(actualiteSelectionne);
-            // Afficher une confirmation à l'utilisateur
             Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
             alert1.setTitle("Suppression");
             alert1.setContentText("Actualité supprimée avec succès");
             alert1.showAndWait();
-            // Rafraîchissez la table après la suppression
+
             initialize();
         } else {
-            // Aucun parking sélectionné, affichez un message d'erreur ou avertissement
+
             System.out.println("Aucune actualitée sélectionné.");
         }
     }
@@ -268,6 +326,19 @@ public class ActualiteController {
 
     public Actualite getActualiteselect() {
         return actualiteselect;
+    }
+    @FXML
+    void onSelectImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisir une image");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Images", "*.png", "*.jpg", "*.gif")
+        );
+        selectedFile = fileChooser.showOpenDialog(null);
+        if (selectedFile != null) {
+            String imagePath = selectedFile.getAbsolutePath();
+
+        }
     }
 }
 

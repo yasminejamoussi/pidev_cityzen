@@ -102,7 +102,7 @@
 }
 
 #button-mezyen {
-{
+
     -fx-translate-x: -100%;
     -fx-translate-y: 0;
     -fx-pref-width: 300%;
@@ -110,7 +110,7 @@
     -fx-background-color: linear-gradient(to right, #00dbde, #0999d2, #032f6e);
     -fx-background-radius: 20;
     -fx-transition: -fx-translate-x 0.4s;
-}
+
 }
 
 .text-field {

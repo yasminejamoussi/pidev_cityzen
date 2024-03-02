@@ -10,6 +10,21 @@ public class Actualite {
     private Date dateA;
     private String categorie;
     private String auteur;
+    private String imagepath;
+
+    public Actualite(String titre, String contenu, Date dateA, String categorie, String auteur) {
+    }
+
+    public Actualite(int idActualite, String titre, String contenu, Date dateA, String categorie, String auteur) {
+    }
+
+    public String getImagepath() {
+        return imagepath;
+    }
+
+    public void setImagepath(String imagepath) {
+        this.imagepath = imagepath;
+    }
 
     public int getId() {
         return id_actualite;
@@ -60,33 +75,37 @@ public class Actualite {
     public Actualite() {
 
     }
-    public Actualite(int id_actualite, String titre, String contenu, Date dateA, String categorie, String auteur) {
+    public Actualite(int id_actualite, String titre, String contenu, Date dateA, String categorie, String auteur,String imagepath) {
         this.id_actualite = id_actualite;
         this.titre = titre;
         this.contenu = contenu;
         this.dateA = dateA;
         this.categorie = categorie;
         this.auteur = auteur;
+        this.imagepath = imagepath;
     }
-    public Actualite( String titre, String contenu, Date dateA, String categorie, String auteur) {
+    public Actualite( String titre, String contenu, Date dateA, String categorie, String auteur, String imagepath) {
 
         this.titre = titre;
         this.contenu = contenu;
         this.dateA = dateA;
         this.categorie = categorie;
         this.auteur = auteur;
+        this.imagepath = imagepath;
     }
 
     @Override
     public String toString() {
         return "Actualite{" +
-                "id=" + id_actualite +
+                "id_actualite=" + id_actualite +
                 ", titre='" + titre + '\'' +
                 ", contenu='" + contenu + '\'' +
-                ", date=" + dateA +
+                ", dateA=" + dateA +
                 ", categorie='" + categorie + '\'' +
                 ", auteur='" + auteur + '\'' +
+                ", imagepath='" + imagepath + '\'' +
                 '}';
     }
+
 
 }

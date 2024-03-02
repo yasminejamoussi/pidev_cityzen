@@ -42,6 +42,9 @@ public class Commentaire {
     public Commentaire(int idCom, String contenuC) {
     }
 
+    public Commentaire(String contenuC, LocalDate dateC) {
+    }
+
     public int getId_com() {
         return id_com;
     }

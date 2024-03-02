@@ -4,6 +4,7 @@ import Entites.Actualite;
 import Entites.Commentaire;
 import Utils.DataSource;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Date;
@@ -51,16 +52,21 @@ public class ServiceCommentaire implements IService<Commentaire>{
 
    @Override
     public void update(Commentaire commentaire) throws SQLException {
-        String req = "UPDATE commentaire set id_actualite = '" + commentaire.getId_actualite() + "', id_user = '"
-                + commentaire.getId_user() + "', contenuC = '" + commentaire.getContenuC() + "', dateC = '" + commentaire.getDateC()
-                + "' where id_com = " + commentaire.getId_com() + ";";
-        try {
-            Statement st = con.createStatement();
-            st.executeUpdate(req);
-            System.out.println("modifiée !");
-        } catch (SQLException ev) {
-            System.out.println(ev.getMessage());
-        }
+
+       String req = "UPDATE commentaire SET contenuC = ? WHERE id_com = ?";
+       try (PreparedStatement st = con.prepareStatement(req)) {
+           st.setString(1, commentaire.getContenuC());
+           st.setInt(2, commentaire.getId_com());
+
+           int rowsUpdated = st.executeUpdate();
+           if (rowsUpdated > 0) {
+               System.out.println("Forum modifié !");
+           } else {
+               System.out.println("Aucun reponse modifié.");
+           }
+       } catch (SQLException ev) {
+           System.out.println(ev.getMessage());
+       }
     }
 
 
@@ -103,7 +109,7 @@ public class ServiceCommentaire implements IService<Commentaire>{
     public List<Commentaire> readOnly() throws SQLException {
         List<Commentaire> list2=new ArrayList<>();
 
-        ResultSet res=ste.executeQuery("SELECT contenuC from forum WHERE id_actualite ='" + getActualiteselect +"';");
+        ResultSet res=ste.executeQuery("SELECT contenuC from commentaire WHERE id_actualite ='" + getActualiteselect +"';");
         while (res.next()) {
 
             int id_com = res.getInt(1);
@@ -137,18 +143,57 @@ public class ServiceCommentaire implements IService<Commentaire>{
 
         return commentairesList;
     }
-    // Méthode pour récupérer les commentaires par actualité
-  /*  public List<Commentaire> getCommentairesByActualite(int idActualite) {
-        // Code pour récupérer les commentaires associés à l'actualité spécifique
-        // Vous devez adapter cette méthode en fonction de la manière dont les commentaires sont stockés dans votre base de données
 
-        // Par exemple, si vous utilisez une liste de commentaires et chaque commentaire a un champ "idActualite" pour identifier l'actualité associée :
+
+
+    /*public List<Commentaire> readCommentairesForIDActualite(int id) throws SQLException {
+        List<Commentaire> commentairesList = new ArrayList<>();
+
+        // Assuming you have a database connection (conn) and a Statement (ste) in your ServiceForum class
+        String query = "SELECT * FROM commentaire WHERE id_actualite = " + id;
+        ResultSet resultSet = ste.executeQuery(query);
+
+        while (resultSet.next()) {
+            int id_com = resultSet.getInt("id_com");
+            int id_actualite = resultSet.getInt("id_actualite");
+            int id_user = resultSet.getInt("id_user");
+            String contenuC = resultSet.getString("contenuC");
+            Date dateC = resultSet.getDate("dateC");
+
+            Commentaire response = new Commentaire(id_com, id_user,id_actualite, contenuC, dateC);
+            commentairesList.add(response);
+        }
+
+        return commentairesList;
+    }*/
+
+    public List<Commentaire> readByActualiteId(int actualiteId) throws SQLException {
+        String query = "SELECT contenuC, dateC FROM commentaire WHERE id_actualite = ?";
+
         List<Commentaire> commentaires = new ArrayList<>();
-        for (Commentaire commentaire : listeDeTousLesCommentaires) {
-            if (commentaire.getId_actualite() == idActualite) {
+
+        try (PreparedStatement statement = con.prepareStatement(query)) {
+            statement.setInt(1, actualiteId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                String contenuC = resultSet.getString("contenuC");
+                LocalDate dateC = resultSet.getDate("dateC").toLocalDate();
+
+                // Ajouter le commentaire à la liste
+                Commentaire commentaire = new Commentaire(contenuC, dateC);
                 commentaires.add(commentaire);
+
+                // Afficher le contenu de chaque commentaire récupéré
+                System.out.println("Contenu du commentaire : " + contenuC);
             }
         }
+
+        // Afficher la taille de la liste des commentaires avant de la renvoyer
+        System.out.println("Nombre de commentaires récupérés : " + commentaires.size());
+
         return commentaires;
-    }*/
+    }
+
+
+
 }

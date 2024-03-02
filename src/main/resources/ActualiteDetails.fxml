@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="545.0" prefWidth="691.0" stylesheets="@Style/stylesheet.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ActualiteDetailsController">
+   <children>
+      <AnchorPane layoutX="28.0" layoutY="20.0" prefHeight="515.0" prefWidth="635.0" style="-fx-background-color: white; -fx-background-radius: 20;">
+         <children>
+            <TextField fx:id="idAuteurA" editable="false" layoutX="389.0" layoutY="382.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextField fx:id="idDateA" editable="false" layoutX="388.0" layoutY="303.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextArea fx:id="idContenuA" editable="false" layoutX="387.0" layoutY="177.0" prefHeight="93.0" prefWidth="186.0" />
+            <TextField fx:id="idTitreA" editable="false" layoutX="386.0" layoutY="117.0" prefHeight="25.0" prefWidth="186.0" />
+            <TextField fx:id="idCategA" editable="false" layoutX="385.0" layoutY="63.0" prefHeight="25.0" prefWidth="186.0" />
+            <ImageView fx:id="imageViewA" fitHeight="345.0" fitWidth="347.0" layoutX="20.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="395.0" layoutY="347.0" text="Nom Auteur :">
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="393.0" layoutY="281.0" text="Date de Publication : ">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="393.0" layoutY="154.0" text="Description :">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="393.0" layoutY="98.0" text="Titre :">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="388.0" layoutY="39.0" text="Catégorie de l'Actualité:">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <Button id="button-mezyen" layoutX="309.0" layoutY="459.0" mnemonicParsing="false" onAction="#CommenterActualite" prefHeight="51.0" prefWidth="112.0" stylesheets="@Style/stylesheet.css" text="Commenter" />
+   </children>
+</AnchorPane>

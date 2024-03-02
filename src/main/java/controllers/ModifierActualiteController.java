@@ -27,6 +27,8 @@ import java.time.ZoneId;
 public class ModifierActualiteController {
     @FXML
     private ComboBox<String> txtCategModif;
+    @FXML
+    private TextField txtCheminActModif;
 
     @FXML
     private TextField txtTitreActModif;
@@ -65,35 +67,28 @@ public class ModifierActualiteController {
         Date dateA = java.sql.Date.valueOf(localDate);
         String categorie = txtCategModif.getValue();
         String auteur = txtauteurActModif.getText();
+        String imagePath = txtCheminActModif.getText();
         if (titre.isEmpty() || contenu.isEmpty() || dateA == null || categorie.isEmpty() || auteur.isEmpty()) {
             System.out.println("Veuillez remplir tous les champs obligatoires.");
             return null;
         }
-
-        Actualite Actualitemodifie = new Actualite(id_actualite, titre, contenu, dateA, categorie, auteur);
+        Actualite Actualitemodifie = new Actualite(id_actualite, titre, contenu, dateA, categorie, auteur,imagePath);
         return Actualitemodifie;
     }
-
-
 
     public void initDonneesActualite(Actualite actualite) {
         txtidActModif.setText(String.valueOf(actualite.getId()));
         txtTitreActModif.setText(actualite.getTitre());
         txtcontenuActModif.setText(actualite.getContenu());
-        txtCategModif.setValue(actualite.getCategorie()); // Sélectionner la catégorie dans le ComboBox
-
+        txtCategModif.setValue(actualite.getCategorie());
         // Convertir la Date en LocalDate
         Date date = actualite.getDateA();
         LocalDate localDate = new java.util.Date(date.getTime()).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-
         // Set the value of the DatePicker
         txtdateActModif.setValue(localDate);
-
         txtauteurActModif.setText(String.valueOf(actualite.getAuteur()));
+        txtCheminActModif.setText(actualite.getImagepath());
     }
-
-
-
 
     public void setObservableList(ObservableList<Actualite> observableList) {
         this.observableList = observableList;

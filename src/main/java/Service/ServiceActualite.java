@@ -24,12 +24,20 @@ public class ServiceActualite implements IService<Actualite>{
 
 
     }
-   @Override
+  /* @Override
     public void ajouter(Actualite actualite) throws SQLException {
 
-        String req="INSERT INTO `actualite` ( `titre`, `contenu`, `dateA`, `categorie`, `auteur`) VALUES ( '"+actualite.getTitre()+"', '"+actualite.getContenu()+"','"+actualite.getDateA()+"', '"+actualite.getCategorie()+"','"+actualite.getAuteur()+"');";
+        String req="INSERT INTO `actualite` ( `titre`, `contenu`, `dateA`, `categorie`, `auteur`,`imagepath`) VALUES ( '"+actualite.getTitre()+"', '"+actualite.getContenu()+"','"+actualite.getDateA()+"', '"+actualite.getCategorie()+"','"+actualite.getAuteur()+"');";
         ste.executeUpdate(req);
-    }
+    }*/
+  @Override
+  public void ajouter(Actualite actualite) throws SQLException {
+      String req = "INSERT INTO `actualite` (`titre`, `contenu`, `dateA`, `categorie`, `auteur`, `imagepath`) " +
+              "VALUES ('" + actualite.getTitre() + "', '" + actualite.getContenu() + "', '" + actualite.getDateA() + "', '" +
+              actualite.getCategorie() + "', '" + actualite.getAuteur() + "', '" + actualite.getImagepath() + "');";
+      ste.executeUpdate(req);
+  }
+
     public  void ajouterCommentaire(Actualite actualite) throws SQLException {}
 
 
@@ -69,7 +77,8 @@ public class ServiceActualite implements IService<Actualite>{
             Date dateA = res.getDate("dateA");
             String categorie = res.getString("categorie");
             String auteur = res.getString("auteur");
-            return new Actualite(id_actualite, titre, contenu, dateA, categorie, auteur);
+            String imagepath = res.getString("imagepath");
+            return new Actualite(id_actualite, titre, contenu, dateA, categorie, auteur,imagepath);
         }
         return null;
     }
@@ -86,7 +95,8 @@ public class ServiceActualite implements IService<Actualite>{
             Date dateA = res.getDate(4);
             String categorie = res.getString(5);
             String auteur = res.getString(6);
-            Actualite a1 =new Actualite (id_actualite,titre,contenu,dateA,categorie,auteur);
+            String imagepath = res.getString(7);
+            Actualite a1 =new Actualite (id_actualite,titre,contenu,dateA,categorie,auteur,imagepath);
             list.add(a1);
         }
 
@@ -106,11 +116,28 @@ public class ServiceActualite implements IService<Actualite>{
             Date dateA = res.getDate(4);
             String categorie = res.getString(5);
             String auteur = res.getString(6);
-            Actualite p1=new Actualite(id_actualite,titre,contenu,dateA,categorie,auteur);
+            String imagepath = res.getString(7);
+            Actualite p1=new Actualite(id_actualite,titre,contenu,dateA,categorie,auteur,imagepath);
             list3.add(p1);
         }
 
         return list3;
     }
+    // Vérifie si le titre donné est unique dans la base de données
+    public boolean isTitreUnique(String titre) throws SQLException {
+        String query = "SELECT COUNT(*) FROM actualite WHERE titre = ?";
+        try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setString(1, titre);
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    int count = resultSet.getInt(1);
+                    return count == 0; // Si count est égal à zéro, le titre est unique
+                }
+            }
+        }
+        return false; // En cas d'erreur ou si le titre n'est pas unique, retourne false
+    }
+
+
 
 }
