@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="680.0" stylesheets="@style/stylesheetback.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterMoyenTrannsportController">
+   <children>
+      <AnchorPane layoutX="46.0" layoutY="18.0" prefHeight="362.0" prefWidth="587.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+         <children>
+            <Button id="button-mezyen" layoutX="124.0" layoutY="308.0" mnemonicParsing="false" onAction="#AfficherMoyenTransport" prefHeight="26.0" prefWidth="95.0" text="Afficher" textFill="#db3e2e" />
+            <Button id="button-mezyen" layoutX="363.0" layoutY="308.0" mnemonicParsing="false" onAction="#AjouterMoyenTransport" prefHeight="26.0" prefWidth="95.0" text="Ajouter" textFill="#83c210" />
+         </children></AnchorPane>
+      <Label layoutX="136.0" layoutY="57.0" text="Type_transport">
+         <font>
+            <Font name="Dubai Bold" size="13.0" />
+         </font></Label>
+      <TextField fx:id="txttype_transport" layoutX="259.0" layoutY="53.0" />
+      <Label layoutX="136.0" layoutY="126.0" text="Lieu">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="txtlieu" layoutX="259.0" layoutY="122.0" />
+      <Label layoutX="136.0" layoutY="191.0" text="Destination" />
+      <TextField fx:id="txtdestination" layoutX="260.0" layoutY="187.0" />
+      <Label layoutX="136.0" layoutY="243.0" text="Heure_depart" />
+      <TextField fx:id="txtheure_depart" layoutX="260.0" layoutY="239.0" />
+      <Label layoutX="136.0" layoutY="292.0" text="Frequence" />
+      <TextField fx:id="txtfrequence" layoutX="259.0" layoutY="288.0" />
+   </children>
+</AnchorPane>

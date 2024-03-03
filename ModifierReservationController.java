@@ -80,6 +80,10 @@ public class ModifierReservationController {
         String prix = txtprix.getText();
         int id_user = Integer.parseInt(txtid_user.getText());
         int id_transport = Integer.parseInt(txtid_transport.getText());
+        if (!prix.matches("\\d.*")) {
+            // La saisie ne commence pas par un chiffre
+            // Afficher un message d'erreur ou effectuer une action appropriée
+        }
         if ( heure_reservation.isEmpty() || prix.isEmpty() ) {
             System.out.println("Veuillez remplir tous les champs obligatoires.");
             return null;

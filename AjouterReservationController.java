@@ -1,8 +1,10 @@
 package controllers;
 import Entites.MoyenTransport;
 import Entites.Reservation;
+import Entites.ReservationConfirmationApp;
 import Service.ServiceMoyenTransport;
 import Service.ServiceReservation;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +19,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
-
+import org.controlsfx.control.Notifications;
 public class AjouterReservationController {
     @FXML
     private DatePicker txtdate;
@@ -33,30 +35,57 @@ public class AjouterReservationController {
 
     @FXML
     private TextField txtprix;
+    @FXML
+    private TextField txtdestination;
+
+    @FXML
+    private TextField txtfrequence;
+    @FXML
+    private TextField txtheure_dep;
+    @FXML
+    private TextField txtlieu;
+    @FXML
+    private TextField txttype;
+
 
     private final ServiceReservation serr = new ServiceReservation();
 
     @FXML
     void ajouterreservation(ActionEvent event) {
         try {
-            // Récupérer la date sélectionnée du DatePicker
+            // Récupérer les données de la réservation à partir des champs de saisie
             LocalDate localDate = txtdate.getValue();
-            // Convertir LocalDate en Date
             Date date_reservation = java.sql.Date.valueOf(localDate);
-            String heure_reservation  = txtheure.getText();
+            String heure_reservation = txtheure.getText();
             String prix = txtprix.getText();
             int id_user = Integer.parseInt(txtid_user.getText());
             int id_transport = Integer.parseInt(txtid_transport.getText());
-            Reservation p1 = new Reservation(date_reservation, heure_reservation, prix, id_user,id_transport);
+
+            // Créer un objet Reservation avec les données récupérées
+            Reservation reservation = new Reservation(date_reservation, heure_reservation, prix, id_user, id_transport);
+
+            // Ajouter la réservation à la base de données
+            serr.ajouterPST(reservation);
+
+            // Envoi de l'e-mail de confirmation
+            String to = "bizanimohamed1@gmail.com"; // Adresse e-mail du destinataire
+            String subject = "Confirmation de réservation";
+            String body = "Votre réservation a été confirmée avec succès.";
+
+            ReservationConfirmationApp.sendEmail(to, subject, body);
+
+            // Afficher une confirmation à l'utilisateur
             Alert alert1 = new Alert(Alert.AlertType.CONFIRMATION);
             alert1.setTitle("Confirmation");
-            alert1.setContentText("Reservation ajouté avec succès");
+            alert1.setContentText("Reservation ajoutée avec succès et email de confirmation envoyé.");
             alert1.showAndWait();
 
-            serr.ajouterPST(p1);
+            Notifications.create().title("Done").text("ajout avec succés").showConfirm();
+
         } catch (SQLException | NumberFormatException e) {
+            // Gérer les erreurs
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
+            alert.setTitle("Erreur");
             alert.setContentText(e.getMessage());
             alert.showAndWait();
         }
@@ -80,5 +109,14 @@ public class AjouterReservationController {
         }
 
     }
+    public void initDonneesMoyen(MoyenTransport moyenTransport) {
+        //txtid.setText(String.valueOf(moyenTransport.getId_transport()));
+        txttype.setText(moyenTransport.getType_transport());
+        txtlieu.setText(moyenTransport.getLieu());
+        txtdestination.setText(moyenTransport.getDestination());
+        txtheure_dep.setText(moyenTransport.getHeure_depart());
+        txtfrequence.setText(String.valueOf(moyenTransport.getFrequence()));
+    }
+
 
 }
